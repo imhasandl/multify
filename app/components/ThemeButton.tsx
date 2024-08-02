@@ -5,6 +5,11 @@ import { useState } from "react"
 import { UseSelector, useDispatch, useSelector } from "react-redux"
 import { turnDarkMode, turnLightMode } from "../features/theme/themeSlice"
 
+import Image from "next/image"
+
+import DarkModeImage from '@/public/darkmodeicon.svg'
+import LightModeImage from '@/public/lightmodeicon.svg'
+
 import type { ThemeState } from "../features/theme/themeSlice"
 
 export default function ThemeButton() {
@@ -23,11 +28,17 @@ export default function ThemeButton() {
   return (
     <>
       <button onClick={turnDarkTheme} className={`${theme ? "hidden" : 'block'}`}>
-        Dark
+        <Image 
+          alt="dark theme button"
+          src={DarkModeImage}
+        />
       </button>
 
       <button onClick={turnLightTheme} className={`${theme ? "block" : 'hidden'}`}>
-        Light
+        <Image 
+          alt="dark theme button"
+          src={LightModeImage}
+        /> 
       </button>
     </>
   )
