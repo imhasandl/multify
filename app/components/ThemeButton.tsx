@@ -19,8 +19,6 @@ export default function ThemeButton() {
     const turnLightTheme = () => {
       dispatch(turnLightMode())
   }
-    
-
 
   return (
     <>
