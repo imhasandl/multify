@@ -15,8 +15,8 @@ export default function Home() {
     `}>
       <div 
         className={`
-          max-w-[1150px] w-full transition duration-150 rounded-md shadow-2xl
-          ${theme ? 'bg-[#282828] text-white' : 'bg-white text-black'}
+          max-w-[1150px] w-full h-[100vh] transition duration-150 shadow-2xl
+          ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
         
       </div>

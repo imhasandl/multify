@@ -2,13 +2,14 @@
 
 import type { ThemeState } from "../features/theme/themeSlice" //Type
 
-import { useDispatch, UseDispatch, useSelector } from "react-redux"
-import { turnDarkMode, turnLightMode } from "../features/theme/themeSlice"
+import { useDispatch, useSelector } from "react-redux"
+
 import Image from "next/image"
 import Link from "next/link"
 
 import LogoForLightTheme from '@/public/multify-high-resolution-logo-transparent.png' 
 import LogoForDarkTheme from '@/public/multify-high-resolution-logo-white-transparent.png'
+
 import ThemeButton from "./ThemeButton"
 
 export default function SideNav() {
@@ -35,7 +36,7 @@ export default function SideNav() {
             className={`${theme ? "block" : 'hidden'}`}
           />
         </Link>
-
+        
         <div className={`absolute top-[150px] h-[2px] w-[250px] rounded-lg ${theme ? 'bg-white' : 'bg-[#4A596D]'}`} />
         <div className={`absolute top-[170px] h-[2px] w-[200px] rounded-lg ${theme ? 'bg-white' : 'bg-[#4A596D]'}`} />
       </div>
@@ -43,7 +44,7 @@ export default function SideNav() {
       
 
       {/* Theme Button Section  */}
-      <div className="absolute h-[50px] w-[50px] border-4 right-0 bottom-0">
+      <div className="absolute h-[55px] w-[55px] right-0 bottom-0 m-3">
         <div className="flex justify-center items-center w-full h-full">
           <ThemeButton />
         </div>
