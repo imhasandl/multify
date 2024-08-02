@@ -1,38 +1,24 @@
+'use client'
+
+import { useSelector } from "react-redux";
+
+import type { ThemeState } from "./features/theme/themeSlice";
 
 export default function Home() {
+  const theme = useSelector((state: { theme: ThemeState }) => state.theme.value)
+
   return (
-    <div className="w-full flex justify-center ">
-      <div className="border-8 max-w-[1150px] w-full">
-        <div className="h-[100px] w-[100px] bg-black text-white flex justify-center align-center" >Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-black text-white">Box</div>
-        <div className="h-[100px] w-[100px] bg-red-950 text-white">Box</div>
+    <div 
+      className={`
+      w-full flex justify-center transition duration-150
+      ${theme ? 'bg-[#121212]' : 'bg-[#F5F5F5]'}  
+    `}>
+      <div 
+        className={`
+          max-w-[1150px] w-full transition duration-150 rounded-md shadow-2xl
+          ${theme ? 'bg-[#282828] text-white' : 'bg-white text-black'}
+        `}> 
+        
       </div>
     </div>
   );
