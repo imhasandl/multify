@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.gradient {
+   background-image: linear-gradient(to right, #ff0000, #00ff00); /* Replace with your desired colors */
+   background-size: 100% 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   border-image-slice: 1;
+   border-image-source: linear-gradient(to right, #ff0000, #00ff00); /* Replace with your desired colors */
+}
