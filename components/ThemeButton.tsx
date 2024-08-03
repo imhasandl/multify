@@ -3,14 +3,14 @@
 import { useState } from "react"
 
 import { UseSelector, useDispatch, useSelector } from "react-redux"
-import { turnDarkMode, turnLightMode } from "../features/theme/themeSlice"
+import { turnDarkMode, turnLightMode } from "../app/features/theme/themeSlice"
 
 import Image from "next/image"
 
 import DarkModeImage from '@/public/darkmodeicon.svg'
 import LightModeImage from '@/public/lightmodeicon.svg'
 
-import type { ThemeState } from "../features/theme/themeSlice"
+import type { ThemeState } from "../app/features/theme/themeSlice"
 
 export default function ThemeButton() {
 

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import ThemeButton from '@/app/components/ThemeButton';
+import ThemeButton from '@/components/ThemeButton';
 import { Provider } from 'react-redux';
 import store from '@/app/features/store';
 

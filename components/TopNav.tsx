@@ -2,7 +2,7 @@
 
 import { useSelector } from "react-redux"
 
-import type { ThemeState } from "../features/theme/themeSlice"
+import type { ThemeState } from "../app/features/theme/themeSlice"
 
 import ThemeButton from "./ThemeButton"
 

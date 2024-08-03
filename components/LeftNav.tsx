@@ -1,6 +1,6 @@
 'use client'
 
-import type { ThemeState } from "../features/theme/themeSlice" //Type
+import type { ThemeState } from "../app/features/theme/themeSlice" //Type
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -9,8 +9,17 @@ import Link from "next/link"
 
 import LogoForLightTheme from '@/public/multify-high-resolution-logo-transparent.png' 
 import LogoForDarkTheme from '@/public/multify-high-resolution-logo-white-transparent.png'
+import arrowRight from '@/public/arrow-right.svg'
 
 import ThemeButton from "./ThemeButton"
+
+const navButtonsOptons = [
+  { id: '1', name: 'News', route: "/" },
+  { id: '2', name: 'Weather application', route: "/weather" },
+  { id: '3', name: 'Curenncy convertor', route: "/converter" },
+  { id: '4', name: 'Todo/Planing app', route: "/todos" },
+  { id: '5', name: 'Something Else', route: "/something" }
+]
 
 export default function SideNav() {
   const dispatch = useDispatch()
@@ -40,11 +49,21 @@ export default function SideNav() {
         <div className={`absolute top-[170px] h-[2px] w-[200px] rounded-lg ${theme ? 'bg-white' : 'bg-[#4A596D]'}`} />
       </div>
 
-      
+      {/* Navigation Buttons  */}
+      <div className="flex flex-col m-3 gap-2">
+        {navButtonsOptons.map(option => (
+          <Link href={option.route}>
+            <div className="flex justify-center items-center border-4 rounded-md hover:shadow-md transition-all">
+              <button key={option.id} className="flex w-full py-2">{option.name}</button>
+              <Image className="w-[25px] h-[25px]" src={arrowRight} alt="arrowRight" />
+            </div>
+          </Link>
+        ))}
+      </div>
 
       {/* Theme Button Section  */}
-      <div className="absolute h-[55px] w-[55px] right-0 bottom-0 m-3">
-        <div className="flex justify-center items-center w-full h-full">
+      <div className="absolute h-[55px] w-[55px] right-0 bottom-0 m-3 ">
+        <div className="flex justify-center items-center w-full h-full rounded-full hover:drop-shadow-md">
           <ThemeButton />
         </div>
       </div>
