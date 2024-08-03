@@ -36,7 +36,7 @@ export default function SideNav() {
             className={`${theme ? "block" : 'hidden'}`}
           />
         </Link>
-        
+        fdfd
         <div className={`absolute top-[150px] h-[2px] w-[250px] rounded-lg ${theme ? 'bg-white' : 'bg-[#4A596D]'}`} />
         <div className={`absolute top-[170px] h-[2px] w-[200px] rounded-lg ${theme ? 'bg-white' : 'bg-[#4A596D]'}`} />
       </div>
