@@ -43,7 +43,6 @@ export default function Home() {
     fetchData()
   }, [])
 
-  console.log(news)
 
   return (
     <div 
