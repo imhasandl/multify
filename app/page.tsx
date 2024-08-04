@@ -50,6 +50,16 @@ export default function Home() {
           max-w-[1150px] w-full h-[100%] transition duration-150 shadow-2xl
           ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
+<<<<<<< HEAD
+        {/* Banner News */}
+        <div className="">
+            <NewsBanner
+              news={news}
+            />        
+        </div>
+        
+
+=======
         
         <NewsBanner
           news={news}
@@ -72,6 +82,7 @@ export default function Home() {
       /> 
 
       
+>>>>>>> 43dd92d74058bf3883078717d4672886fecdf0c9
       </div>
     </div>
   );
