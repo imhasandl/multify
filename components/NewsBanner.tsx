@@ -35,19 +35,22 @@ export default function NewsBanner({
    console.log(slide)
 
   return (
-    <div className="w-full h-[100vh] ">
+    <div className="w-full">
       {/* <button onClick={nextSlide} className="arrow arrow-left bg-red-700">Prev</button> */}
-      <div className="flex justify-center items-center m-2 flex-wrap ">
-         {news.map((news: any, index: number) => (
-            <img 
-               alt={news.title}
-               src={news.urlToImage} 
-               key={index} 
-               className={` ${slide === index ? "slide" : 'slide hidden'} max-w-[800px] min-w-[700px] h-[450px]`}
-            />
-         ))}
-
-         
+      <div className="flex flex-row justify-center items-center m-2 flex-wrap">
+         {news.map((news: any, index: number) => {
+            return (
+               <>
+                  <img 
+                     alt={news.title}
+                     src={news.urlToImage} 
+                     key={index} 
+                     className={` ${slide === index ? "slide" : 'slide hidden'} max-w-[800px] min-w-[700px] h-[450px]`}
+                  />
+                  <h1 className="">{news.content}</h1>
+               </>
+            )
+         })}
       </div>
       {/* <button onClick={prevSlide} className="arrow arrow-right bg-red-700">Next</button> */}
     </div>
