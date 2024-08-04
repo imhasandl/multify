@@ -42,7 +42,11 @@ export default function Home() {
   return (
     <div 
       className={`
+<<<<<<< HEAD
       w-full  h-[100%] flex justify-center transition duration-150
+=======
+      w-full h-[100%] flex justify-center transition duration-150
+>>>>>>> c858e6a (height-change)
       ${theme ? 'bg-[#121212]' : 'bg-[#F5F5F5]'}  
     `}>
       <div 
@@ -51,6 +55,7 @@ export default function Home() {
           ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
         
+<<<<<<< HEAD
         <NewsBanner
           news={news}
         />  
@@ -72,6 +77,13 @@ export default function Home() {
       /> 
 
       
+=======
+        <div className="flex">
+            <NewsBanner
+              news={news}
+            />        
+        </div>
+>>>>>>> c858e6a (height-change)
       </div>
     </div>
   );
