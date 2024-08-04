@@ -28,6 +28,8 @@ export default function Home() {
     fetchData()
   }, [])
 
+  console.log(news)
+
 
   function shuffleArray(array: any[]) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -40,14 +42,15 @@ export default function Home() {
   return (
     <div 
       className={`
-      w-full h-[100%] flex justify-center transition duration-150 
+      w-full h-[100%] flex justify-center transition duration-150
       ${theme ? 'bg-[#121212]' : 'bg-[#F5F5F5]'}  
     `}>
       <div 
         className={`
-          max-w-[1150px] w-full h-[100%] transition duration-150 shadow-2xl z-1
+          max-w-[1150px] w-full h-[100%] transition duration-150 shadow-2xl
           ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
+<<<<<<< HEAD
         {/* Banner News */}
         <div className="">
             <NewsBanner
@@ -56,6 +59,30 @@ export default function Home() {
         </div>
         
 
+=======
+        
+        <NewsBanner
+          news={news}
+        />  
+
+        <NewsBanner
+          news={news}
+        /> 
+        <NewsBanner
+          news={news}
+        /> 
+
+        <NewsBanner
+          news={news}
+        /> 
+        <NewsBanner
+          news={news}
+        /> <NewsBanner
+        news={news}
+      /> 
+
+      
+>>>>>>> 43dd92d74058bf3883078717d4672886fecdf0c9
       </div>
     </div>
   );

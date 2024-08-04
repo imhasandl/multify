@@ -27,7 +27,7 @@ export default function SideNav() {
 
   return (
     <nav 
-      className={`h-[100vh] w-full min-w-[250px] lg:min-w-[300px] lg:max-w-[350px] z-50 hidden lg:block sticky top-0 shadow-2xl transition duration-150
+      className={`w-full h-[100vh] min-w-[250px] min-h-[900px] lg:min-w-[300px] lg:max-w-[350px] z-50 hidden lg:block sticky top-0 shadow-2xl transition duration-150
       ${theme ? 'bg-[#282828] text-white' : 'bg-white'}  
     `} > 
       {/* Logo Section // CHANGE THE LOGO AS SOON AS POSIBLe */}
