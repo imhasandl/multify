@@ -54,6 +54,8 @@ export default function Home() {
               news={news}
             />        
         </div>
+        
+
       </div>
     </div>
   );
