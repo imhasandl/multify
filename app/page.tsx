@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div 
       className={`
-      w-full  h-[100%] flex justify-center transition duration-150
+      w-full h-[100%] flex justify-center transition duration-150
       ${theme ? 'bg-[#121212]' : 'bg-[#F5F5F5]'}  
     `}>
       <div 
@@ -55,7 +55,7 @@ export default function Home() {
           news={news}
         />  
 
-<NewsBanner
+        <NewsBanner
           news={news}
         /> 
         <NewsBanner
@@ -72,7 +72,7 @@ export default function Home() {
       /> 
 
       
-       </div>
+      </div>
     </div>
   );
 }
