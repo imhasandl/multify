@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import type { NewsBannerProps } from "../types/index"
+import type { NewsBannerProps } from "@/types"
 import '../app/globals.css'
 
 
