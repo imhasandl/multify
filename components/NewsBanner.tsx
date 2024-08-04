@@ -38,30 +38,42 @@ export default function NewsBanner({
     <div className="w-full">
       {/* <button onClick={nextSlide} className="arrow arrow-left bg-red-700">Prev</button> */}
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div className="flex justify-start items-center m-3 flex-wrap">
          {news.map((news: any, index: number) => {
             return (
                <div className={`${slide === index ? "block" : 'hidden'} flex`}>
 =======
+=======
+>>>>>>> c858e6a (height-change)
       <div className="flex flex-row justify-center items-center m-2 flex-wrap">
          {news.map((news: any, index: number) => {
             return (
                <>
+<<<<<<< HEAD
+>>>>>>> c858e6a (height-change)
+=======
 >>>>>>> c858e6a (height-change)
                   <img 
                      alt={news.title}
                      src={news.urlToImage} 
                      key={index} 
 <<<<<<< HEAD
+<<<<<<< HEAD
                      className={`max-w-[800px] min-w-[700px] h-[450px] rounded-md`}
                   />
                   <h1>{news.content}</h1>
                </div>
 =======
+=======
+>>>>>>> c858e6a (height-change)
                      className={` ${slide === index ? "slide" : 'slide hidden'} max-w-[800px] min-w-[700px] h-[450px]`}
                   />
                   <h1 className="">{news.content}</h1>
                </>
+<<<<<<< HEAD
+>>>>>>> c858e6a (height-change)
+=======
 >>>>>>> c858e6a (height-change)
             )
          })}
