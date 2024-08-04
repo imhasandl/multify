@@ -37,18 +37,18 @@ export default function NewsBanner({
   return (
     <div className="w-full">
       {/* <button onClick={nextSlide} className="arrow arrow-left bg-red-700">Prev</button> */}
-      <div className="flex flex-row justify-center items-center m-2 flex-wrap">
+      <div className="flex flex-row justify-start items-center m-2 flex-wrap">
          {news.map((news: any, index: number) => {
             return (
-               <>
+               <div className={`${slide === index ? "slide" : 'slide hidden'}`} key={index}>
                   <img 
                      alt={news.title}
                      src={news.urlToImage} 
                      key={index} 
-                     className={` ${slide === index ? "slide" : 'slide hidden'} max-w-[800px] min-w-[700px] h-[450px]`}
+                     className={`max-w-[800px] min-w-[700px] h-[450px]`}
                   />
-                  <h1 className="">{news.content}</h1>
-               </>
+                  <h1>{news.content}</h1>
+               </div>
             )
          })}
       </div>
