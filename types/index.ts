@@ -1,3 +1,3 @@
 export interface NewsBannerProps {
-   news: any
+   news: any[]
 }

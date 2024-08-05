@@ -1,17 +1,9 @@
 'use client'
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import type { ThemeState } from "./features/theme/themeSlice";
 import NewsSection from "@/components/NewsSection";
-
-function shuffleArray(array: any[]) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
 
 export default function Home() {
   const [news, setNews] = useState([])
@@ -31,10 +23,10 @@ export default function Home() {
           .filter((article: any) => article.author !== null)
           .filter((article: any) => article.description !== null)
           .filter((article: any) => article.title !== null)
-          .filter((article: any) => article.content !== null);
+          .filter((article: any) => article.content !== null)
+          .filter((article: any) => article.publishedAt !== null);
          
-        const shuffledNews: any = shuffleArray(filteredNews)
-        setNews(shuffledNews)
+        setNews(filteredNews)
       } catch (error) {
         console.log(error)
       }
