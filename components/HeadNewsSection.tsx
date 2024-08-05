@@ -2,7 +2,7 @@
 
 import { useState, useEffect,  } from "react"
 import type { NewsBannerProps } from "@/types"
-import preLoaderSVG from '@/public/gears-spinner.svg'
+import categories from "@/data";
 
 export default function NewsBanner({ news }: NewsBannerProps) {
    const [slide, setSlide] = useState<number>(0)
@@ -17,7 +17,6 @@ export default function NewsBanner({ news }: NewsBannerProps) {
    
    return (
       <div className="flex m-2 md:m-8">
-         
          {news.map((newsItem: any, index: number) => (
             <div className={`${slide === index ? 'block' : 'hidden'} w-full overflow-hidden z-auto`}>
                <div className="flex justify-center w-full ">
@@ -48,8 +47,8 @@ export default function NewsBanner({ news }: NewsBannerProps) {
                         </a>
                      </h2>
                         <div className="flex flex-row justify-center items-center mt-4">
-                           <button className="w-[250px] h-[50px] bg-gray-500 mr-5 rounded-lg font-mono font-bold" onClick={prevSlide}>Previous</button>
-                           <button className="w-[250px] h-[50px] bg-gray-500 mr-5 rounded-lg ml-5 font-mono font-bold" onClick={nextSlide}>Next</button>
+                           <button className="w-[250px] h-[50px] bg-gray-500 mr-5 rounded-lg font-mono font-bold hover:opacity-40 transition duration-350" onClick={prevSlide}>Previous</button>
+                           <button className="w-[250px] h-[50px] bg-gray-500 mr-5 rounded-lg ml-5 font-mono font-bold hover:opacity-40 transition duration-350" onClick={nextSlide}>Next</button>
                            <span className="opacity-50 text-sm md:text-md ml-auto font-mono font-bold">
                               Published Day: {new Date(newsItem.publishedAt).toLocaleDateString()}
                            </span>

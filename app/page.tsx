@@ -3,14 +3,22 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import type { ThemeState } from "./features/theme/themeSlice";
-import NewsSection from "@/components/NewsSection";
+
+import HeadNewsSection from '@/components/HeadNewsSection'
+import ExtraNewsSection from "@/components/ExtraNewsSection";
+
+import preLoaderSVG from '@/public/bouncing-circles.svg'
+import Image from "next/image";
 
 export default function Home() {
   const [news, setNews] = useState([])
+  const [loading, setLoading] = useState<boolean>(true)
+
   const theme = useSelector((state: { theme: ThemeState }) => state.theme.value)
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       try {
         const response = await fetch(`https://newsapi.org/v2/everything?q=president&apiKey=38546be38b424463a794093a83b5822c&pageSize=15`)
         if(!response.ok){
@@ -27,6 +35,7 @@ export default function Home() {
           .filter((article: any) => article.publishedAt !== null);
          
         setNews(filteredNews)
+        setLoading(false)
       } catch (error) {
         console.log(error)
       }
@@ -34,7 +43,6 @@ export default function Home() {
 
     fetchData()
   }, [])
-
 
   return (
     <div 
@@ -48,11 +56,27 @@ export default function Home() {
           ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
 
-        {/* News Section */}
-        <NewsSection
-          news={news}
-        />
+        <div className="flex justify-center items-center w-full h-auto ">
+          {loading ? (
+            <Image 
+              src={preLoaderSVG}
+              alt="Loader"
+              className="mt-[150px] min-w-[185px]"
+            />
+          ) : (
+            <div className="flex flex-col h-auto w-full">
+              {/* News Head Section Component */}
+              <HeadNewsSection
+                news={news}
+              />
 
+              {/* News Bottom Section Component */}
+              <ExtraNewsSection 
+                themeMode={theme}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
