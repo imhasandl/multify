@@ -15,10 +15,9 @@ import ThemeButton from "./ThemeButton"
 
 const navButtonsOptons = [
   { id: '1', name: 'News', route: "/" },
-  { id: '2', name: 'Weather application', route: "/weather" },
+  { id: '2', name: 'Todo/Planing app', route: "/todos" },
   { id: '3', name: 'Curenncy convertor', route: "/converter" },
-  { id: '4', name: 'Todo/Planing app', route: "/todos" },
-  { id: '5', name: 'Something Else', route: "/something" }
+  { id: '4', name: 'Something Else', route: "/something" }
 ]
 
 export default function SideNav() {
