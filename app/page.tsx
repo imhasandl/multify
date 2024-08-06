@@ -58,13 +58,13 @@ export default function Home() {
           ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
 
-
-        <div className="flex justify-center items-center w-full h-auto">
+        {/* THIS ONE NIGGA */}
+        <div className="flex justify-center items-center w-full h-[100vh]">
           {loading ? (
             <Image 
               src={preLoaderSVG}
               alt="Loader"
-              className="mt-[150px] min-w-[185px]"
+              className="min-w-[185px]"
             />
           ) : (
             <div className="flex flex-col h-auto w-full">
