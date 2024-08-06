@@ -58,7 +58,6 @@ export default function Home() {
           ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
 
-        {/* THIS ONE NIGGA */}
         <div className="flex justify-center items-center w-full h-[100vh]">
           {loading ? (
             <Image 
