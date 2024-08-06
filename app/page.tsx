@@ -33,8 +33,10 @@ export default function Home() {
           .filter((article: any) => article.title !== null)
           .filter((article: any) => article.content !== null)
           .filter((article: any) => article.publishedAt !== null);
+
+          const shuffledNews = filteredNews.sort(() => Math.random() - 0.5);
          
-        setNews(filteredNews)
+        setNews(shuffledNews)
         setLoading(false)
       } catch (error) {
         console.log(error)

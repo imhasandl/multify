@@ -2,7 +2,6 @@
 
 import { useState, useEffect,  } from "react"
 import type { NewsBannerProps } from "@/types"
-import categories from "@/data";
 
 export default function NewsBanner({ news }: NewsBannerProps) {
    const [slide, setSlide] = useState<number>(0)
