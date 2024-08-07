@@ -1,16 +1,13 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
-import search from '@/public/search.svg'
-import categories from "@/data/categoryData"
-import countries from "@/data/countriesData"
 import preLoaderSVG from '@/public/bouncing-circles.svg'
 import Image from "next/image"
 
 export default function extraNewsSection({ themeMode }: any) {
   const [input, setInput] = useState<string>('')
-  const [result, setResult] = useState<any>()
+  const [result, setResult] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(false) 
 
   async function handleSearch(){
@@ -25,12 +22,12 @@ export default function extraNewsSection({ themeMode }: any) {
       const data = await responce.json()
         // Filters
       const filteredNews = data.articles
-      .filter((article: any) => article.urlToImage !== null)
-      .filter((article: any) => article.author !== null)
-      .filter((article: any) => article.description !== null)
-      .filter((article: any) => article.title !== null)
-      .filter((article: any) => article.content !== null)
-      .filter((article: any) => article.publishedAt !== null);
+        .filter((article: any) => article.urlToImage !== null)
+        .filter((article: any) => article.author !== null)
+        .filter((article: any) => article.description !== null)
+        .filter((article: any) => article.title !== null)
+        .filter((article: any) => article.content !== null)
+        .filter((article: any) => article.publishedAt !== null);
 
       setResult(filteredNews)
       setLoading(false)
@@ -41,22 +38,22 @@ export default function extraNewsSection({ themeMode }: any) {
 
   return (
     <div className="flex flex-col relative flex-wrap m-2 md:mx-8 ">
-      <div className="flex flex-row flex-wrap justify-start items-center">
+      <div className="flex flex-row flex-wrap items-center">
         {/* Filter Section */}
         <input 
-          className={`${themeMode ? 'bg-[#121212]' : 'bg-white'} min-w-[150px] max-w-[450px] p-4 text-lg border-gray-600 border-4 hover:opacity-75 focus:text-opacity-55 rounded-md min-h-[25px] h-[50px] mt-2 sm:mt-2`}
+          className={`${themeMode ? 'bg-[#121212]' : 'bg-white'} min-w-[150px] max-w-[450px] p-4 text-lg border-gray-600 border-4 hover:opacity-75 focus:text-opacity-55 rounded-md min-h-[25px] h-[50px] mr-4`}
           onChange={(e) => setInput((e.target.value).toLowerCase())} 
           type="text" 
           placeholder="Search for news..." 
         />
-        <button onClick={handleSearch} className={`${themeMode ? 'bg-[#121212]' : 'bg-white'} border-gray-600 border-4 w-[150px] h-[50px] rounded-md hover:opacity-75 ml-0 md:ml-4 mt-2 sm:mt-2`}>
+        <button onClick={handleSearch} className={`${themeMode ? 'bg-[#121212]' : 'bg-white'} border-gray-600 border-4 w-[150px] h-[50px] rounded-md hover:opacity-75 sm:justify-end  `}>
           Search
         </button>
       </div>
 
 
       {/* Result News */}
-      <div className="flex justify-center flex-wrap mt-8">
+      <div className="flex flex-col justify-center flex-wrap mt-8">
         {loading ? (
           <Image 
             src={preLoaderSVG}
@@ -71,7 +68,7 @@ export default function extraNewsSection({ themeMode }: any) {
                   <img className="aspect-[4/2] rounded-md hover:shadow-lg" src={article.urlToImage} alt={`${article + index}`}/>
                   <h1 className="font-bold">
                     {article.title} 
-                    <span className="opacity-50 text-sm">
+                    <span className="opacity-50 text-sm ml-2">
                       {new Date(article.publishedAt).toLocaleDateString()}
                     </span>
                   </h1>
@@ -83,7 +80,6 @@ export default function extraNewsSection({ themeMode }: any) {
           </div>
         ) : null}
       </div>
-
     </div>
   )
 }

@@ -11,7 +11,7 @@ export default function TopNav() {
 
   return (
     <nav 
-      className={`flex lg:hidden items-center w-full min-h-[85px] sticky top-0 z-auto duration-150 shadow-lg
+      className={`flex lg:hidden items-center w-full min-h-[85px] sticky top-0 duration-150 shadow-lg z-50
          ${theme ? "bg-[#282828] text-white" : 'bg-white'}
       `}>
       <div className="absolute right-2 w-[55px] h-[55px]">

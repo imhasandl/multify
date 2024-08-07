@@ -58,7 +58,7 @@ export default function Home() {
           ${theme ? 'bg-[#282828] text-white' : 'bg-white'}
         `}> 
 
-        <div className="flex justify-center items-center w-full h-[100vh]">
+        <div className="flex justify-center items-center w-full h-[100vh] md:h-auto">
           {loading ? (
             <Image 
               src={preLoaderSVG}
