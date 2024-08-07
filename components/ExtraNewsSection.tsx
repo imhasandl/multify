@@ -53,7 +53,7 @@ export default function extraNewsSection({ themeMode }: any) {
 
 
       {/* Result News */}
-      <div className="flex flex-col justify-center flex-wrap mt-8">
+      <div className="flex flex-col justify-center items-center flex-wrap mt-8">
         {loading ? (
           <Image 
             src={preLoaderSVG}
@@ -63,7 +63,7 @@ export default function extraNewsSection({ themeMode }: any) {
         ) : result ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {result.map((article: any, index: number) => (
-              <div key={index} className="flex flex-wrap w-full font-serif">
+              <div key={index} className="flex flex-wrap font-serif mb-4">
                 <a href={article.url}>
                   <img className="aspect-[4/2] rounded-md hover:shadow-lg" src={article.urlToImage} alt={`${article + index}`}/>
                   <h1 className="font-bold">

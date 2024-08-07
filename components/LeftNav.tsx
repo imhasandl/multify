@@ -52,7 +52,7 @@ export default function SideNav() {
       <div className="flex flex-col m-3 gap-2">
         {navButtonsOptons.map(option => (
           <Link href={option.route}>
-          <div className={`flex justify-center items-center rounded-md hover:shadow-md transition-all transform hover:scale-110
+          <div className={`flex justify-center items-center rounded-md hover:shadow-md transition duration-150  transform hover:scale-110
             ${theme ? 'bg-gradient-to-r from-[#282828] to-[#4A596D]' : 'bg-gradient-to-r from-white to-[#4A596D]'}`}>
             <button key={option.id} className="flex w-full py-2">
               <span className="font-sans ml-5">{option.name}</span>
