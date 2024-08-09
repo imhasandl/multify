@@ -20,17 +20,15 @@ export default function Todo() {
 	
 	function hadnleTodoCreation(){
 		const newTodo = {
-			id: Date.now(),
 			title: title,
 			category: category,
     		todoText: todoText,
 		}
 
-		console.log(newTodo)
 		dispatch(createTodo(newTodo))
 	}
 
-	console.log()
+	console.log(todos)
 
 
   return (
@@ -70,7 +68,7 @@ export default function Todo() {
 			
 			{/* Result */}
 			<div className='flex flex-row flex-wrap w-full m-5 shadow-inner'>
-				{/* {todos.map()} */}
+				
 			</div>
 		</div>		
  	</div>
