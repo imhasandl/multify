@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { UseDispatch } from 'react-redux'
 import { createTodo } from '@/app/features/theme/todoSlice'
 
 import categoryData from '@/data/categoryTodoData'
@@ -26,6 +25,9 @@ export default function Todo() {
 		}
 
 		dispatch(createTodo(newTodo))
+		setTitle('')
+		setCategory('')
+		setTodoText('')
 	}
 
 	console.log(todos)
@@ -67,8 +69,10 @@ export default function Todo() {
 			</div>	
 			
 			{/* Result */}
-			<div className='flex flex-row flex-wrap w-full m-5 shadow-inner'>
-				
+			<div className='w-full'>
+				<div className='shadow-inner m-4 w-full'>
+					
+				</div>
 			</div>
 		</div>		
  	</div>
