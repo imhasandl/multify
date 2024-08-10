@@ -1,26 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface TodoSlicerProps {
-   title: string;
-   category: string;
-   todoText: string;
-}
+   title: string
+   category: string
+   todoText: string
+ }
 
-const initialState: TodoSlicerProps = {
-   title: "",
-   category: "",
-   todoText: "",
-}
+ const initialState: TodoSlicerProps[] = []
 
 const todoSlice = createSlice({
    name: "todo",
    initialState,
-   reducers: {
+   reducers: { 
       createTodo: (state, action) => {
-         state.title = action.payload.title;
-         state.category = action.payload.category;
-         state.todoText = action.payload.todoText;
-      },
+         state.push(action.payload)
+       },
    },
 })
 
