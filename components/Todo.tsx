@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createTodo } from '@/app/features/theme/todoSlice'
 
 import categoryData from '@/data/categoryTodoData'
-import type { ThemeState } from '@/app/features/theme/themeSlice'
-import type { TodoSlicerProps } from '@/app/features/theme/todoSlice'
+import type { ThemeState } from '@/types'
+import type { TodoSlicerProps } from '@/types'
 
 export default function Todo() {
 	const theme = useSelector((state: { theme: ThemeState }) => state.theme.value)

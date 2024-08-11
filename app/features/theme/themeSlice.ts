@@ -1,8 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export interface ThemeState {
-   value: boolean
-}
+import type { ThemeState } from "@/types";
 
 const initialState: ThemeState = {
    value: false
