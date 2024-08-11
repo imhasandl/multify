@@ -4,7 +4,7 @@ import { useState } from "react"
 
 import { useSelector } from "react-redux"
 
-import type { ThemeState } from "../features/theme/themeSlice"
+import type { ThemeState } from "@/types"
 
 import Todo from "@/components/Todo"
 

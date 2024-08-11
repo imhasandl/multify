@@ -1,12 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { TodoSlicerProps } from "@/types";
 
-export interface TodoSlicerProps {
-   title: string
-   category: string
-   todoText: string
- }
-
- const initialState: TodoSlicerProps[] = []
+const initialState: TodoSlicerProps[] = []
 
 const todoSlice = createSlice({
    name: "todo",
