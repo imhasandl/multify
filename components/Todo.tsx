@@ -33,6 +33,10 @@ export default function Todo() {
     }
   }
 
+  function handleDeleteTodo(){
+	console.log(todos)
+  }
+
   return (
     <div className="w-full flex flex-col">
       <div className="w-full h-auto flex flex-col mt-5">
@@ -76,23 +80,37 @@ export default function Todo() {
         </div>
 
         <div className="flex border-4 border-blue-500 rounded-md m-2">
-          <div className="flex justify-center items-start h-auto flex-row flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center ">
             {todos.map((todo: { title: string; category: string; todoText: string }, index: number) => (
-               <div className="flex flex-col m-4 h-[300px] w-[300px] rounded-md bg-slate-100" key={index}>
-						<div className="flex p-4">
-							{todo.title}
+               <div className="flex flex-col m-4 h-auto max-w-[300px] rounded-md bg-slate-100" key={index}>
+						<div className="flex items-center justify-between p-2">
+							<div className='flex flex-col'>
+								<h1 className=''>{todo.title}</h1>
+								<p className='text-sm opacity-50'>{todo.category}</p>
+							</div>
+
+							<div className=''>
+								Checkbox
+							</div>
 						</div>
 						
-						<div className='flex flex-1 rounded-lg bg-gray-200'>
-							{todo.todoText}
+
+						{/* Fix text */}
+						<div className="h-[150px] rounded-lg bg-gray-200">
+							<div className="m-2 h-full">
+								<p className="font-semibold">{todo.todoText}</p>
+							</div>
 						</div>
 
-						<div className='flex flex-row justify-start items-center justify-between'>
-							<p className='text-sm opacity-50 pl-2'>{new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</p>
+						<div className='flex flex-row items-center justify-evenly p-2'>
+							<p className='text-[12px] opacity-50 pl-2'>{new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</p>
 
-							<div className='flex flex-row justify-between p-3'>
-								<img className='h-[25px] w-[25px]' src={pencilEdit.src} alt='editIcon'/>
-								<img className='h-[25px] w-[25px]' src={redBin.src} alt='trashIcon'/>
+							<div className='p-2 ml-2 rounded-full cursor-pointer hover:bg-gray-300 transition'>
+								<img className='w-[30px] h-[30px]' src={pencilEdit.src} alt='editIcon' />
+							</div>
+
+							<div className='p-2 rounded-full cursor-pointer hover:bg-red-200 transition'>
+								<img className='w-[30px] h-[30px]' onClick={handleDeleteTodo} src={redBin.src} alt='editIcon' />
 							</div>
 						</div>
                </div>

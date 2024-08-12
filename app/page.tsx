@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import type { ThemeState } from "./features/theme/themeSlice";
+import type { ThemeState } from "@/types";
 
 import HeadNewsSection from '@/components/HeadNewsSection'
 import ExtraNewsSection from "@/components/ExtraNewsSection";
