@@ -8,7 +8,7 @@ const todoSlice = createSlice({
    initialState,
    reducers: { 
       createTodo: (state, action) => {
-         state.push(action.payload)
+         state.unshift(action.payload)
        },
    },
 })
