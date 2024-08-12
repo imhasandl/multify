@@ -1,6 +1,6 @@
 'use client'
 
-import type { ThemeState } from "../app/features/theme/themeSlice" //Type
+import type { ThemeState } from '@/types/index'
 
 import { useDispatch, useSelector } from "react-redux"
 
