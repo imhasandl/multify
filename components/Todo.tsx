@@ -3,24 +3,30 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createTodo } from '@/app/features/theme/todoSlice'
 
 import categoryData from '@/data/categoryTodoData'
-import type { ThemeState } from '@/types'
-import type { TodoSlicerProps } from '@/types'
+import type { ThemeState, TodoSlicerProps } from '@/types'
 
 import redBin from '@/public/red-bin.png'
 import pencilEdit from '@/public/pebcil-edit.png'
+import checkboxEmpty from '@/public/checkbox_empty.png'
+import chackboxPinned from '@/public/checkbox-pinned.png'
 
 
 export default function Todo() {
   const theme = useSelector((state: { theme: ThemeState }) => state.theme.value)
-  const todos = useSelector((state: { todo: TodoSlicerProps }) => state.todo)
+  const todos = useSelector((state: { todo: any }) => state.todo)
   const dispatch = useDispatch()
 
   const [title, setTitle] = useState<string>('')
   const [category, setCategory] = useState<string>('')
   const [todoText, setTodoText] = useState<string>('')
+  const [checkbox, setCheckbox] = useState<boolean | undefined>(false)
 
   function handleTodoCreation() {
-    const newTodo = { title, category, todoText }
+    const newTodo = {
+      title, 
+      category, 
+      todoText 
+    }
 
     if (title === '' && category === '' && todoText === '') {
       alert('Please fill all fields.')
@@ -34,7 +40,7 @@ export default function Todo() {
   }
 
   function handleDeleteTodo(){
-	console.log(todos)
+	  console.log(todos)
   }
 
   return (
@@ -79,41 +85,46 @@ export default function Todo() {
           </button>
         </div>
 
-        <div className="flex border-4 border-blue-500 rounded-md m-2">
-          <div className="flex flex-wrap justify-center ">
+        <div className={`${todos.length > 3 ? '' : ''} flex border-4 border-blue-500 rounded-md m-2`}>
+          <div className="flex flex-wrap">
             {todos.map((todo: { title: string; category: string; todoText: string }, index: number) => (
-               <div className="flex flex-col m-4 h-auto max-w-[300px] rounded-md bg-slate-100" key={index}>
-						<div className="flex items-center justify-between p-2">
-							<div className='flex flex-col'>
-								<h1 className=''>{todo.title}</h1>
-								<p className='text-sm opacity-50'>{todo.category}</p>
-							</div>
+              <div className={`${checkbox ? "opacity-50 transition " : ''} flex flex-col m-4 h-auto max-w-[300px] rounded-md bg-slate-100`} key={index}>
+                <div className="flex items-center justify-between p-2">
+                  <div className='flex flex-col flex-1'>
+                    <h1 className=''>{todo.title}</h1>
+                    <p className='text-sm opacity-50'>{todo.category}</p>
+                  </div>
 
-							<div className=''>
-								Checkbox
-							</div>
-						</div>
-						
+                  <div className='flex justify-center items-center'>
+                    <input 
+                      onClick={() => setCheckbox((prev) => !prev)} 
+                      id="default-checkbox" 
+                      type="checkbox"
+                      checked={checkbox}
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" 
+                    />
+                  </div>
+                </div>
+					
+                {/* Fix text */}
+                <div className="flex justify-center items-center h-auto min-h-[50px] rounded-lg bg-gray-200">
+                  <div className='w-full m-2 overflow-hidden'>
+                    <p className='font-semibold '>{todo.todoText.length > 30 ? <span>{todo.todoText.slice(0, 30)}...</span> : <span>{todo.todoText}</span>}</p>
+                  </div>
+                </div>
 
-						{/* Fix text */}
-						<div className="h-[150px] rounded-lg bg-gray-200">
-							<div className="m-2 h-full">
-								<p className="font-semibold">{todo.todoText}</p>
-							</div>
-						</div>
+                <div className='flex flex-row items-center justify-evenly p-2'>
+                  <p className='text-[12px] opacity-50 pl-2'>{new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</p>
 
-						<div className='flex flex-row items-center justify-evenly p-2'>
-							<p className='text-[12px] opacity-50 pl-2'>{new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</p>
+                  <button className='p-2 ml-2 rounded-full cursor-pointer hover:bg-gray-300 transition ' disabled={checkbox}>
+                    <img className='w-[30px] h-[30px]' src={pencilEdit.src} alt='editIcon' />
+                  </button>
 
-							<div className='p-2 ml-2 rounded-full cursor-pointer hover:bg-gray-300 transition'>
-								<img className='w-[30px] h-[30px]' src={pencilEdit.src} alt='editIcon' />
-							</div>
-
-							<div className='p-2 rounded-full cursor-pointer hover:bg-red-200 transition'>
-								<img className='w-[30px] h-[30px]' onClick={handleDeleteTodo} src={redBin.src} alt='editIcon' />
-							</div>
-						</div>
-               </div>
+                  <button className='p-2 rounded-full cursor-pointer hover:bg-red-200 transition'>
+                    <img className='w-[30px] h-[30px]' onClick={handleDeleteTodo} src={redBin.src} alt='editIcon' />
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         </div>
