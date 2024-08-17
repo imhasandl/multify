@@ -7,8 +7,6 @@ import type { ThemeState, TodoSlicerProps } from '@/types'
 
 import redBin from '@/public/red-bin.png'
 import pencilEdit from '@/public/pebcil-edit.png'
-import checkboxEmpty from '@/public/checkbox_empty.png'
-import chackboxPinned from '@/public/checkbox-pinned.png'
 
 
 export default function Todo() {
@@ -40,9 +38,9 @@ export default function Todo() {
   }
 
   function handleDeleteTodo(){
-	  console.log(todos)
   }
-
+  
+  console.log(todos.length)
   return (
     <div className="w-full flex flex-col">
       <div className="w-full h-auto flex flex-col mt-5">
@@ -85,8 +83,8 @@ export default function Todo() {
           </button>
         </div>
 
-        <div className={`${todos.length > 3 ? '' : ''} flex border-4 border-blue-500 rounded-md m-2`}>
-          <div className="flex flex-wrap">
+        <div className="flex border-4 border-blue-500 rounded-md m-2">
+          <div className={`flex flex-wrap ${todos.length > 2 ? "justify-center items-center" : ''}`}>
             {todos.map((todo: { title: string; category: string; todoText: string }, index: number) => (
               <div className={`${checkbox ? "opacity-50 transition " : ''} flex flex-col m-4 h-auto max-w-[300px] rounded-md bg-slate-100`} key={index}>
                 <div className="flex items-center justify-between p-2">
@@ -117,7 +115,7 @@ export default function Todo() {
                   <p className='text-[12px] opacity-50 pl-2'>{new Date().toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</p>
 
                   <button className='p-2 ml-2 rounded-full cursor-pointer hover:bg-gray-300 transition ' disabled={checkbox}>
-                    <img className='w-[30px] h-[30px]' src={pencilEdit.src} alt='editIcon' />
+                    <img className='w-[30px] h-[30px]' src={pencilEdit.src} alt='editIcon'/>
                   </button>
 
                   <button className='p-2 rounded-full cursor-pointer hover:bg-red-200 transition'>
