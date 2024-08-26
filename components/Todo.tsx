@@ -25,19 +25,22 @@ export default function Todo() {
       category, 
       todoText 
     }
+    
+    setTitle('')
+    setCategory('')
+    setTodoText('')
 
     if (title === '' && category === '' && todoText === '') {
       alert('Please fill all fields.')
       return
     } else {
       dispatch(createTodo(newTodo))
-      setTitle('')
-      setCategory('')
-      setTodoText('')
     }
+
   }
 
   function handleDeleteTodo(){
+    return null
   }
   
   console.log(todos.length)
@@ -54,6 +57,16 @@ export default function Todo() {
             />
           </div>
 
+
+          <div className="max-w-[300px]">
+            <input
+              className="py-3 px-4 border-4 border-cyan-500 focus:border-blue-500 rounded-lg hover:shadow-md cursor-pointer"
+              onChange={(e) => setTodoText(e.target.value)}
+              placeholder="Additinal text"
+              type="text"
+            />
+          </div>  
+
           <div className="flex flex-col items-center">
             <select
               className="py-3 px-3 border-4 border-cyan-500 rounded-lg focus-within:border-blue-500 text-opacity-50 hover:shadow-md cursor-pointer"
@@ -64,18 +77,6 @@ export default function Todo() {
                 <option value={category}>{category}</option>
               ))}
             </select>
-          </div>
-        </div>
-
-        <div className="flex flex-row flex-wrap m-4">
-          <div className="flex-1 max-w-[400px]">
-            <label className="block mb-2 text-sm font-medium">Your todo text</label>
-            <textarea
-              id="message"
-              className="block p-2.5 h-[175px] w-full text-sm border-4 border-cyan-500 rounded-lg hover:shadow-md cursor-pointer"
-              onChange={(e) => setTodoText(e.target.value)}
-              placeholder="Write your thoughts here..."
-            ></textarea>
           </div>
 
           <button className="ml-auto mb-auto" onClick={handleTodoCreation}>
@@ -104,7 +105,6 @@ export default function Todo() {
                   </div>
                 </div>
 					
-                {/* Fix text */}
                 <div className="flex justify-center items-center h-auto min-h-[50px] rounded-lg bg-gray-200">
                   <div className='w-full m-2 overflow-hidden'>
                     <p className='font-semibold '>{todo.todoText.length > 30 ? <span>{todo.todoText.slice(0, 30)}...</span> : <span>{todo.todoText}</span>}</p>
