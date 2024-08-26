@@ -25,25 +25,27 @@ export default function Todo() {
       category, 
       todoText 
     }
+  
     
-    setTitle('')
-    setCategory('')
-    setTodoText('')
-
     if (title === '' && category === '' && todoText === '') {
       alert('Please fill all fields.')
       return
     } else {
       dispatch(createTodo(newTodo))
+      setTitle('')
+      setCategory('')
+      setTodoText('')
     }
-
   }
 
-  function handleDeleteTodo(){
-    return null
+  function handleDeleteTodo(title: string) {
+    
+  }
+
+  function handleDeleteAllTodo(){
+    
   }
   
-  console.log(todos.length)
   return (
     <div className="w-full flex flex-col">
       <div className="w-full h-auto flex flex-col mt-5">
@@ -78,14 +80,16 @@ export default function Todo() {
               ))}
             </select>
           </div>
-
-          <button className="ml-auto mb-auto" onClick={handleTodoCreation}>
-            Create Todo
-          </button>
+            
+          <div className='flex ml-auto h-full rounded-md border-4 border-cyan-500 focus:border-blue-500 hover:opacity-50 transition'>
+            <button className="py-3 px-4" onClick={handleTodoCreation}>
+              Create Todo
+            </button>
+          </div>
         </div>
 
         <div className="flex border-4 border-blue-500 rounded-md m-2">
-          <div className={`flex flex-wrap ${todos.length > 2 ? "justify-center items-center" : ''}`}>
+          <div className={`flex flex-wrap relative ${todos.length > 2 ? "justify-center items-center" : ''} `}>
             {todos.map((todo: { title: string; category: string; todoText: string }, index: number) => (
               <div className={`${checkbox ? "opacity-50 transition " : ''} flex flex-col m-4 h-auto max-w-[300px] rounded-md bg-slate-100`} key={index}>
                 <div className="flex items-center justify-between p-2">
@@ -119,11 +123,19 @@ export default function Todo() {
                   </button>
 
                   <button className='p-2 rounded-full cursor-pointer hover:bg-red-200 transition'>
-                    <img className='w-[30px] h-[30px]' onClick={handleDeleteTodo} src={redBin.src} alt='editIcon' />
+                    <img 
+                      className='w-[30px] h-[30px]' 
+                      onClick={() => handleDeleteTodo(title)} 
+                      src={redBin.src} 
+                      alt='editIcon' 
+                    />
                   </button>
                 </div>
               </div>
             ))}
+            <div className='absolute right-5 bottom-5 cursor-pointer' onClick={handleDeleteAllTodo}>
+              <h1 className='text-red-600 font-bold'>Delete All</h1>
+            </div>
           </div>
         </div>
       </div>
